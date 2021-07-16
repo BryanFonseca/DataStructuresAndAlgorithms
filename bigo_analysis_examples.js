@@ -29,3 +29,20 @@ function sample(array)
 
   return [first, middle, last];
 }
+
+//passwork chacker
+
+function CrackPass(combinationNumber)
+{
+  let abc = ['a', 'b', 'c', 'd'];
+  let result = [];
+  for(let i = 0; i < abc.length; i++);
+  {
+    for(let j = 0; j < abc.length; j++)
+    {
+      result.push(abc[i] + abc[j]);
+    }
+  }
+  return result;
+}
+console.log(CrackPass(0));
