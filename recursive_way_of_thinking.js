@@ -80,5 +80,72 @@ function RecursiveDouble(array, index = array.length - 1)
 
 RecursiveDouble(arr);
 console.log(arr);
-
+console.log('---------------------');
 //What's great about top-down thinking: in a way, we can solve a problem without even knowing how to solve the problem
+
+//Counting Xs
+
+let string = 'xbxcxdxxx'
+function CountXs(string)
+{
+  if(string.length === 0)
+  {
+    return 0;
+  }
+  if(string[0] === 'x')
+  {
+    return CountXs(string.substring(1)) + 1
+  }
+  else 
+  {
+    return CountXs(string.substring(1))
+  }
+}
+
+console.log(CountXs(string));
+console.log('---------------');
+
+let toEvensOnly = [1, 2, 3, 4, 5, 6];
+function EvensOnly(arr)
+{
+  if(arr.length === 0)
+  {
+    return [];
+  }
+  if(arr[0] % 2 === 0)
+  {
+    return Array.prototype.concat(arr[0], EvensOnly(arr.slice(1)));
+  }
+  return Array.prototype.concat(EvensOnly(arr.slice(1)));
+}
+
+console.log(EvensOnly(toEvensOnly));
+
+// if TriangularNumbers(3) -> 6
+function TriangularNumbers(N)
+{
+  if(N === 0)
+  {
+    return 0;
+  }
+  return N + TriangularNumbers(N - 1); 
+}
+
+console.log(TriangularNumbers(7));
+console.log('--------------');
+
+function FirstIndexX(str, index = 1)
+{
+  if(str.length === 0)
+  {
+    return -1;
+  }
+  else if(str[0] === 'x')
+  {
+    return 1;
+  }
+  return FirstIndexX(str.slice(1), index + 1) + 1;
+}
+
+let str = 'axdghdjeirufhdsj';
+console.log(FirstIndexX(str));
