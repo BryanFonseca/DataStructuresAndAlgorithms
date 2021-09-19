@@ -12,6 +12,30 @@ class LinkedList
     this.first_node = first_node;
     this.next_node = null;
   }
+  reverse()
+  {
+    let reversedLL = new LinkedList();
+    let travellerNode = this.first_node;
+    while (true)
+    {
+      reversedLL.insertAtIndex(0, travellerNode.data);
+      if(!travellerNode.next_node)
+      {
+	break;
+      }
+      travellerNode = travellerNode.next_node;
+    }
+    this.first_node = reversedLL.first_node;
+  }
+  print()
+  {
+    let currentNode = this.first_node;
+    while(currentNode)
+    {
+      console.log(currentNode.data);
+      currentNode = currentNode.next_node;
+    }
+  }
   read(index)
   {
     let currentIndex = 0;
@@ -86,7 +110,7 @@ node_2.next_node = node_3;
 node_3.next_node = node_4;
 
 let list = new LinkedList(node_1);
-console.log(list.read(0));
-console.log(list.search(""));
-list.insertAtIndex(0, "hola");
-console.log(list.read(0));
+list.print();
+list.reverse();
+console.log('------------');
+list.print();
